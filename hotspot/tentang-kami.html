@@ -154,28 +154,45 @@
 		<script>
 			var slideIndex = 1;
 			showDivs3(slideIndex);
+
 			function plusDivs3(n) {
-                showDivs3(slideIndex += n);
+				showDivs3(slideIndex += n);
 			}
+
 			function currentDiv3(n) {
-                showDivs3(slideIndex = n);
+				showDivs3(slideIndex = n);
 			}
-			
+
 			function showDivs3(n) {
-			  var i;
-			  var x = document.getElementsByClassName("mySlides3");
-			  var dots = document.getElementsByClassName("demo3");
-			  if (n > x.length) {slideIndex = 1}
-			  if (n < 1) {slideIndex = x.length}
-			  for (i = 0; i < x.length; i++) {
-			    x[i].style.display = "none";  
-			  }
-			  for (i = 0; i < dots.length; i++) {
-			    dots[i].className = dots[i].className.replace(" w3-white", "");
-			  }
-			  x[slideIndex-1].style.display = "block";  
-			  dots[slideIndex-1].className += " w3-white";
+				var i;
+				var x = document.getElementsByClassName("mySlides3");
+				var dots = document.getElementsByClassName("demo3");
+				
+				if (n > x.length) { slideIndex = 1; }
+				if (n < 1) { slideIndex = x.length; }
+
+				// Sembunyikan semua slide
+				for (i = 0; i < x.length; i++) {
+					x[i].style.display = "none";  
+				}
+				
+				// Hilangkan tanda bulat aktif dari semua tanda bulat
+				for (i = 0; i < dots.length; i++) {
+					dots[i].className = dots[i].className.replace(" w3-white", "");
+				}
+
+				// Tampilkan slide dan atur tanda bulat aktif
+				x[slideIndex - 1].style.display = "block";  
+				dots[slideIndex - 1].className += " w3-white";
 			}
+
+			// Fungsi untuk mengatur interval otomatis setiap 5 detik
+			function autoSlide3() {
+				plusDivs3(1);
+			}
+
+			// Mengatur interval otomatis dengan waktu 5000 milidetik (5 detik)
+			setInterval(autoSlide3, 5000);
 		</script>
 		<script>
 			function updateDateTime() {

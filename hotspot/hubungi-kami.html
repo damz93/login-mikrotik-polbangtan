@@ -158,28 +158,45 @@
 		<script>
 			var slideIndex = 1;
 			showDivs2(slideIndex);
+
 			function plusDivs2(n) {
-			  showDivs2(slideIndex += n);
+			showDivs2(slideIndex += n);
 			}
+
 			function currentDiv2(n) {
-			  showDivs2(slideIndex = n);
+			showDivs2(slideIndex = n);
+			}
+
+			function showDivs2(n) {
+			var i;
+			var x = document.getElementsByClassName("mySlides2");
+			var dots = document.getElementsByClassName("demo2");
+			
+			if (n > x.length) { slideIndex = 1; }
+			if (n < 1) { slideIndex = x.length; }
+
+			// Sembunyikan semua slide
+			for (i = 0; i < x.length; i++) {
+				x[i].style.display = "none";  
 			}
 			
-			function showDivs2(n) {
-			  var i;
-			  var x = document.getElementsByClassName("mySlides2");
-			  var dots = document.getElementsByClassName("demo2");
-			  if (n > x.length) {slideIndex = 1}
-			  if (n < 1) {slideIndex = x.length}
-			  for (i = 0; i < x.length; i++) {
-			    x[i].style.display = "none";  
-			  }
-			  for (i = 0; i < dots.length; i++) {
-			    dots[i].className = dots[i].className.replace(" w3-white", "");
-			  }
-			  x[slideIndex-1].style.display = "block";  
-			  dots[slideIndex-1].className += " w3-white";
+			// Hilangkan tanda bulat aktif dari semua tanda bulat
+			for (i = 0; i < dots.length; i++) {
+				dots[i].className = dots[i].className.replace(" w3-white", "");
 			}
+
+			// Tampilkan slide dan atur tanda bulat aktif
+			x[slideIndex - 1].style.display = "block";  
+			dots[slideIndex - 1].className += " w3-white";
+			}
+
+			// Fungsi untuk mengatur interval otomatis setiap 5 detik
+			function autoSlide2() {
+			plusDivs2(1);
+			}
+
+			// Mengatur interval otomatis dengan waktu 5000 milidetik (5 detik)
+			setInterval(autoSlide2, 5000);
 			
 		</script>
 		<script>

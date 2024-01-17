@@ -204,7 +204,7 @@
 							<div class="col-12 col-md-8" style="text-align: left;">
 								<p style="font-size: 0.7rem;font-style: italic;">Anda belum punya akun hotspot atau kode akses?  <br>Silahkan kontak admin melalui halaman <b style="color: #f7ca37;"> HUBUNGI KAMI </b></p>
 								<!-- <a style="padding-right: 10px;" href="https://instagram.com/polbangtangowa" target="_blank" title="Instagram"><i class="bi bi-instagram" style="color: white;width: 30px;"></i></a> -->
-								<a style="padding-right: 5px;" href="https://instagram.com/polbangtangowa" target="_blank" title="Instagram"><img src="pict/icon/wa.png" style="width: 20px;"></a>
+								<a style="padding-right: 5px;" href="https://instagram.com/polbangtangowa" target="_blank" title="Instagram"><img src="pict/icon/ig.png" style="width: 20px;"></a>
 								<a style="padding-right: 5px;" href="https://twitter.com/polbangtangowa" target="_blank" title="Twitter"><img src="pict/icon/tw.png" style="width: 20px;"></a>
 								<a style="padding-right: 5px;" href="https://www.tiktok.com/@polbangtangowa" target="_blank" title="TikTok"><img src="pict/icon/tiktok.png" style="width: 20px;"></a>
 								<a style="padding-right: 5px;" href="https://www.facebook.com/pages/Polbangtan-Gowa/2156564757926673" target="_blank" title="Facebook"><img src="pict/icon/fb.png" style="width: 20px;"></a>
@@ -236,31 +236,46 @@
 		</script>
 		<script>
 			var slideIndex = 1;
-			showDivs(slideIndex);
-			
-			function plusDivs(n) {
-			  showDivs(slideIndex += n);
-			}
-			
-			function currentDiv(n) {
-			  showDivs(slideIndex = n);
-			}
-			
-			function showDivs(n) {
-			  var i;
-			  var x = document.getElementsByClassName("mySlides");
-			  var dots = document.getElementsByClassName("demo");
-			  if (n > x.length) {slideIndex = 1}
-			  if (n < 1) {slideIndex = x.length}
-			  for (i = 0; i < x.length; i++) {
-			    x[i].style.display = "none";  
-			  }
-			  for (i = 0; i < dots.length; i++) {
-			    dots[i].className = dots[i].className.replace(" w3-white", "");
-			  }
-			  x[slideIndex-1].style.display = "block";  
-			  dots[slideIndex-1].className += " w3-white";
-			}
+				showDivs(slideIndex);
+
+				function plusDivs(n) {
+				showDivs(slideIndex += n);
+				}
+
+				function currentDiv(n) {
+				showDivs(slideIndex = n);
+				}
+
+				function showDivs(n) {
+				var i;
+				var x = document.getElementsByClassName("mySlides");
+				var dots = document.getElementsByClassName("demo");
+				
+				if (n > x.length) { slideIndex = 1; }
+				if (n < 1) { slideIndex = x.length; }
+
+				// Sembunyikan semua slide
+				for (i = 0; i < x.length; i++) {
+					x[i].style.display = "none";  
+				}
+				
+				// Hilangkan tanda bulat aktif dari semua tanda bulat
+				for (i = 0; i < dots.length; i++) {
+					dots[i].className = dots[i].className.replace(" w3-white", "");
+				}
+
+				// Tampilkan slide dan atur tanda bulat aktif
+				x[slideIndex - 1].style.display = "block";  
+				dots[slideIndex - 1].className += " w3-white";
+				}
+
+				// Fungsi untuk mengatur interval otomatis
+				function autoSlide() {
+				plusDivs(1);
+				}
+
+				// Mengatur interval otomatis dengan waktu 3000 milidetik (3 detik)
+				setInterval(autoSlide, 5000);
 			
 		</script>
 		<script>
@@ -298,6 +313,7 @@
 			
   			
 		</script>
+
 		
 	</body>
 </html>
